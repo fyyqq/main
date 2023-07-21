@@ -1,5 +1,10 @@
 
 $(document).ready(function() {
+
+    $('#main_header').css('transform', 'translateX(0px)');
+    $('#main_header ul').css('transform', 'translateX(0px)');
+    $('.navbar-brand').css('transform', 'translateX(0px)');
+
     $(document).on('click', '.nav-link', function(e) {
         e.preventDefault();
 
@@ -7,7 +12,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
         
-    const verticalSize = [0, 500, 1300, 2500];
+    const verticalSize = [0, 500, 1300, 2700];
     const navLinks = $('.nav-link');
     const navbar = $('.navbar');
 

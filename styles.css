@@ -40,6 +40,35 @@ body {
     color: #555;
 }
 
+.navbar .navbar-brand {
+    transform: translateX(-500px);
+    transition: transform 1s ease;
+}
+
+/* .navbar .nav-item {
+    transition: transform 1.5s ease;
+}
+
+.navbar .nav-item:nth-child(1) {
+    transform: translateY(-100px);
+}
+
+.navbar .nav-item:nth-child(2) {
+    transform: translateY(-150px);
+}
+
+.navbar .nav-item:nth-child(3) {
+    transform: translateY(-200px);
+}
+
+.navbar .nav-item:nth-child(4) {
+    transform: translateY(-150px);
+}
+
+.navbar .nav-item:nth-child(5) {
+    transform: translateY(-200px);
+} */
+
 .navbar .nav-link.active {
     color: #222;
     position: relative;
@@ -109,19 +138,51 @@ div {
     position: relative;
 }
 
-section#home,
-section#about {
-    height: 750px;
-}
-
 section .h2 {
     font-family: 'Bangers', cursive;
+    position: relative;
+}
+
+section .h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    width: 40px;
+    height: 2.5px;
+    background-color: gray;
 }
 
 /* Home */
 section#home {
+    height: 750px;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+section#home .mdi-map-marker {
+    animation: location 7s infinite linear;
+}
+
+@keyframes location {
+    0% {
+        transform: translate(105px, 23px);
+    }
+    25% {
+        transform: translate(30px, -5px);
+    }
+    50% {
+        transform: translate(90px, -50px);
+    }
+    75% {
+        transform: translate(-110px, -40px);
+    }
+    100% {
+        transform: translate(105px, 23px);
+    }
 }
 
 section#home span {
@@ -136,11 +197,50 @@ section#home h1 {
     color: #333;
 }
 
+section#home #main_header {
+    transform: translateX(-400px);
+    transition: transform 1s ease;
+}
+
+section#home #main_header ul {
+    transform: translateX(-400px);
+    transition: transform 2s ease;
+}
+
 section#home ul li {
     color: #333;
 }
 
+section#home #earth {
+    width: 350px;
+}
+
+section#home #be::after {
+    content: '';
+    background: rgb(194, 194, 194);
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    width: 35%;
+    height: 1px;
+}
+
+section#home #be::before {
+    content: '';
+    background: rgb(194, 194, 194);
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 35%;
+    height: 1px;
+}
+
 /* About */
+
+section#about {
+    height: 550px;
+}
+
 section#about div {
     width: 700px;
     text-align: center;
@@ -252,27 +352,32 @@ section#contact .col-12 ul a:hover {
         border-bottom: 0px;
         user-select: none;
     }
-    .navbar .nav-item.open {
-        transition: transform 1.5s ease;
-    }
     .navbar .nav-item.open:nth-child(1) {
-        transform: translateX(100px);
+        transform: translateX(120px);
     }
     .navbar .nav-item.open:nth-child(2) {
-        transform: translateX(80px);
+        transform: translateX(90px);
     }
     .navbar .nav-item.open:nth-child(3) {
-        transform: translateX(60px);
+        transform: translateX(70px);
     }
     .navbar .nav-item.open:nth-child(4) {
-        transform: translateX(40px);
+        transform: translateX(50px);
     }
     .navbar .nav-item.open:nth-child(5) {
-        transform: translateX(10px);
+        transform: translateX(20px);
     }
     .navbar .nav-item {
         transform: translateX(0px);
-        transition: transform 2s ease;
+        transition: transform 1.5s ease;
+    }
+    /* Home */
+    section#home #earth {
+        width: 320px;
+    }
+    section#home .mdi-map-marker {
+        transform: translate(95px, 103px);
+        animation: unset;
     }
     /* About */
     section#about div {

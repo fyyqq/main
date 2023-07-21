@@ -3,8 +3,9 @@ $(document).ready(function() {
 
     $('#main_header').css('transform', 'translateX(0px)');
     $('#main_header ul').css('transform', 'translateX(0px)');
-    $('.navbar-brand').css('transform', 'translateX(0px)');
-
+    $('#main_header #project_link').css('transform', 'translateX(0px)');
+    
+    
     $(document).on('click', '.nav-link', function(e) {
         e.preventDefault();
 
@@ -40,8 +41,32 @@ $(document).ready(function() {
             $(navbar).removeClass('shadow-sm');
             $(navbar).css('background-color', 'transparent');
         }
-    });
 
+        if (vertical > 500) {
+            $('section#about #about_img').css({
+                'transform': 'scale(1)',
+                'opacity': '1'
+            });
+        }
+
+        if (vertical > 1000) {
+            $('.left_project').eq(0).css('transform', 'translateX(0px)');
+            $('.right_project').eq(0).css('transform', 'translateX(0px)');
+        }
+        if (vertical > 1300) {
+            $('.left_project').eq(1).css('transform', 'translateX(0px)');
+            $('.right_project').eq(1).css('transform', 'translateX(0px)');
+        }
+        if (vertical > 1800) {
+            $('.left_project').eq(2).css('transform', 'translateX(0px)');
+            $('.right_project').eq(2).css('transform', 'translateX(0px)');
+        }
+        if (vertical > 2100) {
+            $('.left_project').eq(3).css('transform', 'translateX(0px)');
+            $('.right_project').eq(3).css('transform', 'translateX(0px)');
+        }
+    });
+    
     $(document).on('click', '.nav-link', function(e) {
         e.preventDefault();
 
@@ -86,10 +111,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-
-
-
-
 
 
 

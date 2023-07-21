@@ -40,11 +40,6 @@ body {
     color: #555;
 }
 
-.navbar .navbar-brand {
-    transform: translateX(-500px);
-    transition: transform 1s ease;
-}
-
 /* .navbar .nav-item {
     transition: transform 1.5s ease;
 }
@@ -152,7 +147,7 @@ section .h2::after {
     border-radius: 20px;
     width: 40px;
     height: 2.5px;
-    background-color: gray;
+    background-color: #222;
 }
 
 /* Home */
@@ -207,6 +202,16 @@ section#home #main_header ul {
     transition: transform 2s ease;
 }
 
+section#home #main_header #project_link {
+    transform: translateX(-600px);
+    transition: transform 2s ease;
+}
+
+section#home #main_header #project_link:hover i {
+    transform: translateX(30px);
+    transition: transform .5s ease;
+}
+
 section#home ul li {
     color: #333;
 }
@@ -239,13 +244,18 @@ section#home #be::before {
 
 section#about {
     height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-section#about div {
-    width: 700px;
-    text-align: center;
+section#about div #about_img {
+    width: 220px;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: all 1s ease;
 }
-
 
 /* Project */
 section#project {
@@ -271,6 +281,16 @@ section#project article div #img_project img {
 section#project article div #img_project img:hover {
     transform: scale(1.05);
     transition: transform .5s ease-in-out;
+}
+
+section#project article .left_project {
+    transform: translateX(-1000px);
+    transition: transform 1s ease;
+}
+
+section#project article .right_project {
+    transform: translateX(1000px);
+    transition: transform 1s ease;
 }
 
 /* Contact */
@@ -380,9 +400,7 @@ section#contact .col-12 ul a:hover {
         animation: unset;
     }
     /* About */
-    section#about div {
-        width: 100%;
-    }
+
     /* Project */
     section#project article div #img_project {
         height: 250px;

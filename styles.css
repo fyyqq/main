@@ -60,3 +60,63 @@ body {
     transform: scale(1.08);
     transition: all .3s ease-in-out;
 }
+
+div {
+    overflow: hidden;
+    position: relative;
+}
+
+section {
+    height: 750px;
+}
+
+section .h2 {
+    font-family: 'Bangers', cursive;
+}
+
+section#home {
+    display: flex;
+    justify-content: center;
+}
+
+section#home span {
+    height: 550px;
+    width: 550px;
+    transform: translateX(2px);
+    z-index: -99;
+}
+
+section#home h1 {
+    font-size: 50px;
+    color: #333;
+}
+
+section#home ul li {
+    color: #333;
+}
+
+section#about div {
+    width: 650px;
+    text-align: center;
+}
+
+section#about div small span {
+    border-bottom: 2px solid royalblue;
+}
+
+section#project {
+    height: max-content;
+}
+
+section#project article {
+    height: 350px;
+}
+
+section#project article div img {
+    cursor: pointer;
+}
+
+section#project article div #img_project:hover {
+    transform: scale(1.05);
+    transition: transform .5s ease-in-out;
+}

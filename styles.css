@@ -10,11 +10,12 @@
 }
 
 body {
-    background-color: #f7f7f7;
+    /* background-color: #f7f7f7; */
+    background-color: #fff;
 }
 
 .navbar {
-    background-color: transparent;
+    background-color: white;
     z-index: 999;
 }
 
@@ -66,7 +67,8 @@ div {
     position: relative;
 }
 
-section {
+section#home,
+section#about {
     height: 750px;
 }
 
@@ -74,6 +76,7 @@ section .h2 {
     font-family: 'Bangers', cursive;
 }
 
+/* Home */
 section#home {
     display: flex;
     justify-content: center;
@@ -95,28 +98,91 @@ section#home ul li {
     color: #333;
 }
 
+/* About */
 section#about div {
     width: 650px;
     text-align: center;
 }
 
-section#about div small span {
-    border-bottom: 2px solid royalblue;
-}
 
+/* Project */
 section#project {
     height: max-content;
-}
-
-section#project article {
-    height: 350px;
 }
 
 section#project article div img {
     cursor: pointer;
 }
 
-section#project article div #img_project:hover {
+section#project article div #img_project {
+    height: 320px;
+    overflow: hidden;
+}
+section#project article div #img_project img {
+    cursor: pointer;
+}
+
+section#project article div #img_project img:hover {
     transform: scale(1.05);
     transition: transform .5s ease-in-out;
+}
+
+/* Contact */
+section#contact {
+    margin-top: 150px;
+    padding-bottom: 80px;
+}
+
+section#contact .col-12 form .form-floating label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    font-weight: 500;
+}
+
+section#contact .col-12 form .form-floating:first-child label,
+section#contact .col-12 form .form-floating:nth-child(2) label {
+    padding-top: 19px;
+}
+
+section#contact .col-12 form .form-floating input,
+section#contact .col-12 form .form-floating textarea {
+    font-size: 14px;
+    border: unset;
+    caret-color: #444;
+}
+
+section#contact .col-12 form .form-floating input:focus,
+section#contact .col-12 form .form-floating textarea:focus {
+    border: 2px solid #222;
+}
+
+section#contact .col-12 form div button {
+    font-size: 13.5px;
+    letter-spacing: 1.5px;
+}
+
+section#contact .col-12 ul a {
+    color: #444;
+}
+
+section#contact .col-12 ul a:hover {
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    /* About */
+    section#about div {
+        width: 100%;
+    }
+    /* Project */
+    section#project article div #img_project {
+        height: 250px;
+        border: 2px solid red;
+    }
+    /* Contact */
+    section#contact {
+        margin-top: 100px;
+        padding-bottom: 50px;
+    }
 }

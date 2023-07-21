@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <nav id="#" class="w-100 navbar navbar-expand-sm py-3">
+        <nav id="#" class="w-100 navbar navbar-expand-sm py-3 fixed-top">
             <div class="container-md">
                 <a class="navbar-brand" href="/">Fyqq</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
@@ -35,30 +35,33 @@
             </div>
         </nav>
         <div class="container-lg">
+            <!-- Home -->
             <section class="row mx-0" id="home">
                 <div class="col-6 d-flex align-items-center justify-content-center flex-column">
-                    <h1>I'm Fyqq</h1>
+                    <h1 class="text-muted fw-bold">I'm Fyqq</h1>
                     <ul class="navbar-nav flex-row gap-3">
-                        <li class="dropdown-item">Malaysia</li>
-                        <li class="dropdown-item">Back End Developer</li>
+                        <li class="dropdown-item" style="font-size: 14.5px;">Malaysia</li>
+                        <li class="dropdown-item" style="font-size: 14.5px;">Back End Developer</li>
                     </ul>
                 </div>
                 <div class="col-6 d-none align-items-center justify-content-center" id="giphy">
                     <img src="/giphy/programmer.gif">
                 </div>
             </section>
+            <!-- About -->
             <section class="d-flex align-items-center justify-content-center flex-column" id="about">
                 <h1 class="h2 text-dark">About</h1>
                 <div class="mt-3">
-                    <small class="text-dark">I am a <span>Backend Developer</span> who is skilled in developing reliable and efficient web solutions. My expertise includes HTML, CSS, JavaScript, SASS, Bootstrap, jQuery, PHP, Laravel, and MySQL. I focus on building strong backends to support interactive and responsive web applications. With a commitment to clean code and high performance, I am ready to create exceptional user experiences and innovative solutions.</small>
+                    <small class="text-dark">I am a <span class="border-bottom border-2 border-primary">Backend Developer</span> who is skilled in developing reliable and efficient web solutions. My expertise includes HTML, CSS, JavaScript, SASS, Bootstrap, jQuery, PHP, Laravel, and MySQL. I focus on building strong backends to support interactive and responsive web applications. With a commitment to clean code and high performance, I am ready to create exceptional user experiences and innovative solutions.</small>
                 </div>
             </section>
-            <section class="d-flex align-items-center justify-content-center flex-column" id="project">
-                <h1 class="h2 text-dark">Project</h1>
-                <article class="row mx-0 mt-5 w-100 flex-md-row flex-column-reverse">
-                    <div class="col-md-6 col-12 h-100">
+            <!-- Project -->
+            <section class="my-5" id="project">
+                <h1 class="h2 text-dark text-center">Project</h1>
+                <article class="row mx-0 mt-5 flex-md-row flex-column-reverse">
+                    <div class="col-md-6 col-12">
                         <div class="w-100 h-100 py-3 px-4">
-                            <div class="">
+                            <div class="mt-md-0 mt-2">
                                 <h1 class="h5 text-dark fw-bold">The Feature</h1>
                                 <small class="text-muted" style="font-size: 13.5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse optio illo sapiente facere error, similique hic quasi doloribus voluptatem tenetur expedita cumque illum iste iusto labore itaque? Officia aspernatur sunt ipsum, corrupti quia odit delectus?</small>
                             </div>
@@ -85,21 +88,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12 h-100">
-                        <div class="border w-100 h-100 rounded-3" style="overflow: hidden;">
-                            <img src="/images/web-1.jpg" class="w-100 h-100" id="img_project" style="object-fit: cover;">
+                    <div class="col-md-6 col-12">
+                        <div class="border w-100 rounded-3" id="img_project">
+                            <img src="/images/web-1.jpg" class="w-100 h-100" style="object-fit: cover;">
                         </div>
                     </div>
                 </article>
-                <article class="row mx-0 mt-5 w-100 flex-md-row flex-column">
-                    <div class="col-md-6 col-12 h-100">
-                        <div class="border w-100 h-100 rounded-3" style="overflow: hidden;">
-                            <img src="/images/web-2.jpg" class="w-100 h-100" id="img_project" style="object-fit: cover;">
+                <article class="row mx-0 py-md-5 py-3">
+                    <div class="col-md-6 col-12">
+                        <div class="border w-100 rounded-3" id="img_project">
+                            <img src="/images/web-2.jpg" class="w-100 h-100" style="object-fit: cover;">
                         </div>
                     </div>
-                    <div class="col-md-6 col-12 h-100">
+                    <div class="col-md-6 col-12">
                         <div class="w-100 h-100 px-4 py-3">
-                            <div class="">
+                            <div class="mt-md-0 mt-2">
                                 <h1 class="h5 text-dark fw-bold">To Do App</h1>
                                 <small class="text-muted" style="font-size: 13.5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse optio illo sapiente facere error, similique hic quasi doloribus voluptatem tenetur expedita cumque illum iste iusto labore itaque? Officia aspernatur sunt ipsum, corrupti quia odit delectus?</small>
                             </div>
@@ -128,10 +131,10 @@
                         </div>
                     </div>
                 </article>
-                <article class="row mx-0 mt-5 w-100 flex-md-row flex-column-reverse">
-                    <div class="col-md-6 col-12 h-100">
+                <article class="row mx-0 flex-md-row flex-column-reverse">
+                    <div class="col-md-6 col-12">
                         <div class="w-100 h-100 px-4 py-3">
-                            <div class="">
+                            <div class="mt-md-0 mt-2">
                                 <h1 class="h5 text-dark fw-bold">JobShort</h1>
                                 <small class="text-muted" style="font-size: 13.5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse optio illo sapiente facere error, similique hic quasi doloribus voluptatem tenetur expedita cumque illum iste iusto labore itaque? Officia aspernatur sunt ipsum, corrupti quia odit delectus?</small>
                             </div>
@@ -145,7 +148,7 @@
                                     <img src="/images/jquery-icon.png" data-bs-target="tooltip" title="Jquery" width="23">
                                     <img src="/images/php-icon.png" data-bs-target="tooltip" title="PHP" width="35">
                                     <img src="/images/laravel-icon.png" data-bs-target="tooltip" title="Laravel" width="21">
-                                    <img src="/images/mysql-icon.png" data-bs-target="tooltip" title="MySQL" width="22">
+                                    <img src="/images/mysql-icon.png" data-bs-target="tooltip" title="MySQL" width="24">
                                 </div>
                             </div>
                             <div class="mt-3 d-flex align-items-start justify-content-center flex-column">
@@ -163,15 +166,64 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12 h-100">
-                        <div class="border w-100 h-100 rounded-3" style="overflow: hidden;">
-                            <img src="/images/web-3.png" class="w-100 h-100" id="img_project" style="object-fit: cover;">
+                    <div class="col-md-6 col-12">
+                        <div class="border w-100 rounded-3" id="img_project">
+                            <img src="/images/web-3.png" class="w-100 h-100" style="object-fit: cover;">
                         </div>
                     </div>
                 </article>
             </section>
-            <section class="d-flex align-items-center justify-content-center" id="contact">
-                <h1 class="h2 text-dark">Contact</h1>
+            <!-- Contact -->
+            <section class="" id="contact">
+                <h1 class="h2 text-dark text-center">Contact</h1>
+                <div class="row mx-0 mt-5 w-100 flex-md-row flex-column-reverse">
+                    <div class="col-lg-6 col-md-4 col-12">
+                        <div class="px-4 py-3 pt-md-3 pt-0">
+                            <h1 class="h5 d-md-block d-none text-dark text-md-start text-center">Get In Touch</h1>
+                            <div class="mt-md-4 mt-2 d-flex align-items-md-start align-items-center justify-content-center flex-column">
+                                <ul class="navbar-nav d-flex flex-md-column flex-row">
+                                    <a href="https://github.com/fyyqq" class="text-decoration-none nav-item d-flex align-items-center justify-content-start gap-3">
+                                        <i class="mdi mdi-github text-dark fs-4"></i>
+                                        <small class="d-md-block d-none" style="font-size: 13px;">Github</small>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/fyqq/" class="mx-md-0 mx-3 text-decoration-none nav-item d-flex align-items-center justify-content-start gap-3">
+                                        <i class="mdi mdi-linkedin text-dark fs-4"></i>
+                                        <small class="d-md-block d-none" style="font-size: 13px;">Linkedin</small>
+                                    </a>
+                                    <a href="mailto:afiqakimy123@gmail.com" class="text-decoration-none nav-item d-flex align-items-center justify-content-start gap-3">
+                                        <i class="mdi mdi-gmail text-dark fs-4"></i>
+                                        <small class="d-md-block d-none" style="font-size: 13px;">Gmail</small>
+                                    </a>
+                                    <a href="" class="ms-md-0 ms-3 text-decoration-none nav-item d-flex align-items-center justify-content-start gap-3">
+                                        <i class="mdi mdi-file-account text-dark fs-4"></i>
+                                        <small class="d-md-block d-none" style="font-size: 13px;">Resume</small>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-12">
+                        <div class="px-4 py-3">
+                            <form>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control shadow-none border" id="floatingInput" placeholder="Username" autocomplete="off">
+                                    <label for="floatingInput">Username</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control shadow-none border" id="floatingInput" placeholder="Email" autocomplete="off">
+                                    <label for="floatingInput">Email Address</label>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control shadow-none border" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+                                    <label for="floatingTextarea2">Message</label>
+                                </div>
+                                <div class="w-100 mt-3">
+                                    <button class="btn w-100 py-2 rounded-pill btn-dark px-3 text-uppercase">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

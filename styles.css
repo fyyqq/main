@@ -56,30 +56,6 @@ body {
     color: #555;
 }
 
-/* .navbar .nav-item {
-    transition: transform 1.5s ease;
-}
-
-.navbar .nav-item:nth-child(1) {
-    transform: translateY(-100px);
-}
-
-.navbar .nav-item:nth-child(2) {
-    transform: translateY(-150px);
-}
-
-.navbar .nav-item:nth-child(3) {
-    transform: translateY(-200px);
-}
-
-.navbar .nav-item:nth-child(4) {
-    transform: translateY(-150px);
-}
-
-.navbar .nav-item:nth-child(5) {
-    transform: translateY(-200px);
-} */
-
 .navbar .nav-link.active {
     color: #222;
     position: relative;
@@ -335,6 +311,10 @@ section#skill .skill_icon:nth-child(13) {
     transform: translate(420px, 60px);
 }
 
+section#skill #skills_container {
+    row-gap: 20px;
+}
+
 /* Project */
 section#project {
     height: max-content;
@@ -496,6 +476,9 @@ section#contact .col-12 ul a:hover {
     /* Skill */
     section#skill {
         margin-bottom: 160px;
+    }
+    section#skill #skills_container {
+        row-gap: 20px;
     }
     /* Project */
     section#project article div #img_project {

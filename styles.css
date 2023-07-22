@@ -14,6 +14,22 @@ body {
     background-color: #fff;
 }
 
+.swal2-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: normal;
+    color: #fff;
+}
+
+div.swal2-popup {
+    border: 2px solid #fff;
+    background-color: #222;
+    border-radius: 25px;
+    width: 25em;
+    padding-bottom: 25px;
+}
+
+/* Navbar */
 .navbar {
     background-color: white;
     z-index: 999;
@@ -357,31 +373,31 @@ section#contact {
     padding-bottom: 80px;
 }
 
-section#contact .col-12 form .form-floating label {
+section#contact .col-12 .form-floating label {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: .5px;
     font-weight: 500;
 }
 
-section#contact .col-12 form .form-floating:first-child label,
-section#contact .col-12 form .form-floating:nth-child(2) label {
+section#contact .col-12 .form-floating:first-child label,
+section#contact .col-12 .form-floating:nth-child(2) label {
     padding-top: 19px;
 }
 
-section#contact .col-12 form .form-floating input,
-section#contact .col-12 form .form-floating textarea {
+section#contact .col-12 .form-floating input,
+section#contact .col-12 .form-floating textarea {
     font-size: 14px;
     border: unset;
     caret-color: #444;
 }
 
-section#contact .col-12 form .form-floating input:focus,
-section#contact .col-12 form .form-floating textarea:focus {
+section#contact .col-12 .form-floating input:focus,
+section#contact .col-12 .form-floating textarea:focus {
     border: 2px solid #222;
 }
 
-section#contact .col-12 form div button {
+section#contact .col-12 div button {
     font-size: 13.5px;
     letter-spacing: 1.5px;
 }
@@ -392,6 +408,13 @@ section#contact .col-12 ul a {
 
 section#contact .col-12 ul a:hover {
     color: #000;
+}
+
+@media screen and (max-width: 992px) {
+    section#project article div #img_project {
+        height: 280px;
+        border: 2px solid red;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -461,8 +484,7 @@ section#contact .col-12 ul a:hover {
     /* Skill */
     /* Project */
     section#project article div #img_project {
-        height: 250px;
-        border: 2px solid red;
+        height: 270px;
     }
     section#project #project_container {
         row-gap: 50px;
@@ -471,5 +493,11 @@ section#contact .col-12 ul a:hover {
     section#contact {
         margin-top: 100px;
         padding-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    section#project article div #img_project {
+        height: 220px;
     }
 }

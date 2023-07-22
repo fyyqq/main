@@ -176,8 +176,8 @@ function sendMessage() {
         $(name).val('');
         $(email).val('');
         $(message).val('');
-    
-            if (res.status == 200) {
+
+        if (res.status == 200) {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -191,7 +191,6 @@ function sendMessage() {
         console.error(err);
     });
 }
-
 
 
 

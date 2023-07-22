@@ -21,7 +21,7 @@ body {
     color: #fff;
 }
 
-div.swal2-popup {
+.swal2-popup {
     border: 2px solid #fff;
     background-color: #222;
     border-radius: 25px;
@@ -176,6 +176,10 @@ section#home {
 
 section#home .mdi-map-marker {
     animation: location 10s infinite linear;
+}
+
+section#home #title_name {
+    font-size: 50px;
 }
 
 @keyframes location {
@@ -390,11 +394,12 @@ section#contact .col-12 .form-floating textarea {
     font-size: 14px;
     border: unset;
     caret-color: #444;
+    border: 1px solid gainsboro;
 }
 
 section#contact .col-12 .form-floating input:focus,
 section#contact .col-12 .form-floating textarea:focus {
-    border: 2px solid #222;
+    border: 1.5px solid #222;
 }
 
 section#contact .col-12 div button {
@@ -474,17 +479,27 @@ section#contact .col-12 ul a:hover {
     }
     /* Home */
     section#home #earth {
-        width: 320px;
+        width: 280px;
     }
     section#home .mdi-map-marker {
         transform: translate(95px, 103px);
         animation: unset;
     }
+    section#home #title_name {
+        font-size: 45px;
+    }
     /* About */
+    section#about {
+        margin-top: 135px;
+        margin-bottom: 110px;
+    }
     /* Skill */
+    section#skill {
+        margin-bottom: 160px;
+    }
     /* Project */
     section#project article div #img_project {
-        height: 270px;
+        height: 220px;
     }
     section#project #project_container {
         row-gap: 50px;
@@ -493,11 +508,5 @@ section#contact .col-12 ul a:hover {
     section#contact {
         margin-top: 100px;
         padding-bottom: 50px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    section#project article div #img_project {
-        height: 220px;
     }
 }

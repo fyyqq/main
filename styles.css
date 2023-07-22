@@ -159,7 +159,7 @@ section#home {
 }
 
 section#home .mdi-map-marker {
-    animation: location 7s infinite linear;
+    animation: location 10s infinite linear;
 }
 
 @keyframes location {
@@ -243,11 +243,12 @@ section#home #be::before {
 /* About */
 
 section#about {
-    height: 550px;
+    height: max-content;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: 150px 0;
 }
 
 section#about div #about_img {
@@ -255,6 +256,63 @@ section#about div #about_img {
     transform: scale(0.5);
     opacity: 0;
     transition: all 1s ease;
+}
+
+/* Skills */
+section#skill {
+    margin-bottom: 150px;
+}
+
+section#skill .skill_icon div {
+    cursor: pointer;
+}
+
+section#skill .skill_menu {
+    cursor: pointer;
+}
+
+section#skill .skill_icon {
+    transition: transform 1.5s ease;
+}
+
+section#skill .skill_icon:nth-child(1) {
+    transform: translate(418px, 270px);
+}
+section#skill .skill_icon:nth-child(2) {
+    transform: translate(140px, 270px);
+}
+section#skill .skill_icon:nth-child(3) {
+    transform: translate(-140px, 270px);
+}
+section#skill .skill_icon:nth-child(4) {
+    transform: translate(-418px, 270px);
+}
+section#skill .skill_icon:nth-child(5) {
+    transform: translate(420px, 200px);
+}
+section#skill .skill_icon:nth-child(6) {
+    transform: translate(140px, 200px);
+}
+section#skill .skill_icon:nth-child(7) {
+    transform: translate(-140px, 200px);
+}
+section#skill .skill_icon:nth-child(8) {
+    transform: translate(-418px, 201px);
+}
+section#skill .skill_icon:nth-child(9) {
+    transform: translate(418px, 130px);
+}
+section#skill .skill_icon:nth-child(10) {
+    transform: translate(140px, 130px);
+}
+section#skill .skill_icon:nth-child(11) {
+    transform: translate(-140px, 130px);
+}
+section#skill .skill_icon:nth-child(12) {
+    transform: translate(-420px, 130px);
+}
+section#skill .skill_icon:nth-child(13) {
+    transform: translate(420px, 60px);
 }
 
 /* Project */
@@ -400,7 +458,7 @@ section#contact .col-12 ul a:hover {
         animation: unset;
     }
     /* About */
-
+    /* Skill */
     /* Project */
     section#project article div #img_project {
         height: 250px;

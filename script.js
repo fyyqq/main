@@ -6,6 +6,7 @@ $(document).ready(function() {
     $('#main_header #project_link').css('transform', 'translateX(0px)');
     
     
+    
     $(document).on('click', '.nav-link', function(e) {
         e.preventDefault();
 
@@ -13,7 +14,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
         
-    const verticalSize = [0, 500, 1300, 2700];
+    const verticalSize = [0, 500, 1100, 1800, 3500];
     const navLinks = $('.nav-link');
     const navbar = $('.navbar');
 
@@ -48,20 +49,22 @@ $(document).ready(function() {
                 'opacity': '1'
             });
         }
-
         if (vertical > 1000) {
+            $('section#skill .skill_icon').css('transform', 'translate(0px, 0px)');
+        }
+        if (vertical > 1600) {
             $('.left_project').eq(0).css('transform', 'translateX(0px)');
             $('.right_project').eq(0).css('transform', 'translateX(0px)');
         }
-        if (vertical > 1300) {
+        if (vertical > 2000) {
             $('.left_project').eq(1).css('transform', 'translateX(0px)');
             $('.right_project').eq(1).css('transform', 'translateX(0px)');
         }
-        if (vertical > 1800) {
+        if (vertical > 2400) {
             $('.left_project').eq(2).css('transform', 'translateX(0px)');
             $('.right_project').eq(2).css('transform', 'translateX(0px)');
         }
-        if (vertical > 2100) {
+        if (vertical > 2800) {
             $('.left_project').eq(3).css('transform', 'translateX(0px)');
             $('.right_project').eq(3).css('transform', 'translateX(0px)');
         }
@@ -100,6 +103,27 @@ $(document).ready(function() {
             $(navItem).addClass('open');
         }
     });
+
+    $(document).on('click', 'section#skill .skill_menu', function(e) {
+        e.preventDefault();
+
+        $('section#skill .skill_menu').removeClass('text-dark border-bottom border-dark border-2');
+        $('section#skill .skill_menu').addClass('text-muted');
+
+        $(this).addClass('text-dark border-bottom border-dark border-2');
+        $(this).removeClass('text-muted');
+
+        const btn_type = $(this).data('type');
+        const skills = $('.skill_icon');
+
+        if (btn_type === 'all') {
+            $(skills).show();
+        } else {
+            $(skills).hide();
+            $(`[data-skill-type="${btn_type}"]`).show();
+        }
+
+    });
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -111,9 +135,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-
-
-
 
 
 

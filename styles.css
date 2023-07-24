@@ -478,6 +478,10 @@ section#contact .col-12 ul a:hover {
         margin-top: 135px;
         margin-bottom: 110px;
     }
+    section#about #about_text {
+        margin: 0 auto;
+        width: 80%;
+    }
     /* Skill */
     section#skill {
         margin-bottom: 160px;
@@ -490,11 +494,17 @@ section#contact .col-12 ul a:hover {
         height: 220px;
     }
     section#project #project_container {
-        row-gap: 50px;
+        row-gap: 35px;
     }
     /* Contact */
     section#contact {
         margin-top: 100px;
         padding-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    section#about #about_text {
+        width: 90%;
     }
 }

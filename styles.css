@@ -396,6 +396,11 @@ section#contact .col-12 ul a:hover {
 }
 
 @media screen and (max-width: 992px) {
+    /* About */
+    section#about div #about_img {
+        width: 190px;
+    }
+    /* Project */
     section#project article div #img_project {
         height: 280px;
         border: 2px solid red;

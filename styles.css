@@ -9,7 +9,7 @@
     /* scroll-behavior: smooth; */
 }
 
-body {
+body {  
     background-color: #fff;
 }
 
@@ -395,11 +395,6 @@ section#contact .col-12 ul a:hover {
 }
 
 @media screen and (max-width: 992px) {
-    /* About */
-    section#about div #about_img {
-        width: 190px;
-    }
-    /* Project */
     section#project article div #img_project {
         height: 280px;
         border: 2px solid red;
@@ -477,13 +472,29 @@ section#contact .col-12 ul a:hover {
         margin-top: 135px;
         margin-bottom: 110px;
     }
-    section#about #about_text {
-        margin: 0 auto;
-        width: 80%;
+    section#home #main_header,
+    section#home #main_header ul,
+    section#home #main_header #project_link {
+        transform: translateX(0px);
     }
     /* Skill */
     section#skill {
         margin-bottom: 160px;
+    }
+    section#skill .skill_icon:nth-child(1),
+    section#skill .skill_icon:nth-child(2),
+    section#skill .skill_icon:nth-child(3),
+    section#skill .skill_icon:nth-child(4),
+    section#skill .skill_icon:nth-child(5),
+    section#skill .skill_icon:nth-child(6),
+    section#skill .skill_icon:nth-child(7),
+    section#skill .skill_icon:nth-child(8),
+    section#skill .skill_icon:nth-child(9),
+    section#skill .skill_icon:nth-child(10),
+    section#skill .skill_icon:nth-child(11),
+    section#skill .skill_icon:nth-child(12),
+    section#skill .skill_icon:nth-child(13) {
+        transform: translate(0px, 0px);
     }
     section#skill #skills_container {
         row-gap: 20px;
@@ -493,17 +504,15 @@ section#contact .col-12 ul a:hover {
         height: 220px;
     }
     section#project #project_container {
-        row-gap: 35px;
+        row-gap: 50px;
+    }
+    section#project article .left_project,
+    section#project article .right_project {
+        transform: translateX(0px);
     }
     /* Contact */
     section#contact {
         margin-top: 100px;
         padding-bottom: 50px;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    section#about #about_text {
-        width: 90%;
     }
 }

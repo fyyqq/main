@@ -186,6 +186,7 @@ function sendMessage() {
                 timer: 1500
             });
             $(email).removeClass('border-danger');
+            $(errElement).addClass('d-none');
         }
     }).catch(err => {
         console.error(err);

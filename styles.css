@@ -280,8 +280,31 @@ section#skill {
     margin-bottom: 150px;
 }
 
-section#skill .skill_icon div {
+section#skill .skill_icon div:first-child {
     cursor: pointer;
+    background-color: #fff;
+}
+
+section#skill .skill_icon div:first-child img {
+    z-index: 500;
+}
+
+section#skill .skill_icon div:first-child:hover #experience {
+    left: 0;
+}
+
+section#skill .skill_icon div:first-child #experience {
+    top: 0;
+    left: 250px;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: .5px;
+    z-index: 100;
+    transition: left .3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 section#skill .skill_menu {

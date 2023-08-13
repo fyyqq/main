@@ -137,7 +137,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     emailjs.init("51lK1nLrWIcoV6rf_");
 })();
 
-function sendMessage() {
+function sendMessage(event) {
 
     const name = $('.inputName');
     const email = $('.inputEmail');
@@ -165,6 +165,9 @@ function sendMessage() {
         email: mailValue,
         message: $(message).val(),
     };
+
+    $('.custom-loader').show();
+    $(event).css('color', 'transparent');
     
     const serviceID = "service_5q3703o";
     const templateID = "template_k52q591";
@@ -174,7 +177,7 @@ function sendMessage() {
         $(name).val('');
         $(email).val('');
         $(message).val('');
-
+        
         if (res.status == 200) {
             Swal.fire({
                 position: 'center',
@@ -185,6 +188,8 @@ function sendMessage() {
             });
             $(email).removeClass('border-danger');
             $(errElement).addClass('d-none');
+            $('.custom-loader').hide();
+            $(event).css('color', '#fff');
         }
     }).catch(err => {
         console.error(err);

@@ -226,7 +226,7 @@ section#home #main_header #project_link {
 
 section#home #main_header #project_link:hover i {
     transform: translateX(30px);
-    transition: transform .5s ease;
+    transition: transform .5s ease-in-out;
 }
 
 section#home ul li {
@@ -266,6 +266,10 @@ section#about {
     justify-content: center;
     flex-direction: column;
     margin: 150px 0;
+}
+
+section#about #about_text small {
+    width: 80%;
 }
 
 section#about div #about_img {
@@ -521,6 +525,9 @@ section#contact .col-12 ul a:hover {
     section#home #main_header ul,
     section#home #main_header #project_link {
         transform: translateX(0px);
+    }
+    section#about #about_text small {
+        width: 100%;
     }
     /* Skill */
     section#skill {

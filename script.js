@@ -12,13 +12,14 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
         
-    const verticalSize = [0, 500, 1100, 1800, 3500];
+    const verticalSize = [0, 500, 1100, 1600, 3000];
     const navLinks = $('.nav-link');
     const navbar = $('.navbar');
 
     $(window).scroll(function() {
         const vertical = $(this).scrollTop();
         let selectedLink = 0;
+        console.log(vertical);
 
         verticalSize.forEach((value, index) => {
             if (vertical > value) {

@@ -553,7 +553,6 @@ section#contact .col-12 ul a:hover {
     }
     section#skill .skill_icon div:first-child #experience {
         font-size: 14px;
-        letter-spacing: unset;
     }
     /* Project */
     section#project article div #img_project {

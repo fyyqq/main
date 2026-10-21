@@ -128,7 +128,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        const target = document.querySelector(this.getAttribute('href'));
+        const navHeight = document.querySelector('.navbar').offsetHeight;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY;
+        const targetHeight = target.offsetHeight;
+        let top = 0;
+
+        if (target.id !== 'home') {
+            // center sections that fit in the viewport, otherwise start just below the navbar
+            top = targetHeight + navHeight < window.innerHeight
+                ? targetTop - (window.innerHeight - targetHeight) / 2
+                : targetTop - navHeight;
+        }
+
+        window.scrollTo({
+            top: Math.max(0, top),
             behavior: 'smooth'
         });
     });

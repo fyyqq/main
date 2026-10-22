@@ -612,6 +612,143 @@ section#contact .col-12 .form-floating textarea {
     border: 1px solid gainsboro;
 }
 
+/* Contact hover cards (GitHub / LinkedIn) */
+section#contact .contact_info {
+    overflow: visible;
+}
+
+section#contact .contact_card {
+    position: absolute;
+    top: 8px;
+    left: 190px;
+    z-index: 5;
+    width: 340px;
+    padding: 18px 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s;
+}
+
+section#contact .contact_card.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+section#contact .contact_card p {
+    margin: 0;
+}
+
+section#contact .cc_head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+section#contact .cc_avatar {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+section#contact .cc_initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+section#contact .cc_name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+}
+
+section#contact .cc_sub,
+section#contact .cc_muted {
+    font-size: 12.5px;
+    color: #888;
+}
+
+section#contact .cc_text {
+    margin-top: 14px !important;
+    font-size: 13.5px;
+    color: #444;
+}
+
+section#contact .cc_text + .cc_text {
+    margin-top: 4px !important;
+}
+
+section#contact .cc_stats {
+    display: flex;
+    gap: 22px;
+    margin-top: 14px;
+    font-size: 12.5px;
+    color: #888;
+}
+
+section#contact .cc_stats b {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+}
+
+section#contact .cc_label {
+    margin-top: 14px !important;
+    padding-top: 12px;
+    border-top: 1px solid #ececec;
+    font-size: 11px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+section#contact .cc_list {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    color: #444;
+}
+
+section#contact .cc_list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+section#contact .cc_link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #222;
+    text-decoration: none;
+}
+
+section#contact .cc_link:hover {
+    text-decoration: underline;
+}
+
+/* the cards need the empty space beside the links, so only show them on wide screens with hover */
+@media (max-width: 1199.98px), (hover: none) {
+    section#contact .contact_card {
+        display: none;
+    }
+}
+
 /* animated focus border: drawn clockwise from the top center */
 section#contact .col-12 .form-floating .field_border {
     position: absolute;

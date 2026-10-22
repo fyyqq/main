@@ -179,6 +179,59 @@ $(document).ready(function() {
         }
     });
 
+    // hover cards next to the contact links; the GitHub one loads the public profile once
+    let cardTimer;
+    let githubLoaded = false;
+
+    function loadGithubCard() {
+        if (githubLoaded) {
+            return;
+        }
+        githubLoaded = true;
+
+        Promise.all([
+            fetch('https://api.github.com/users/fyyqq').then(res => res.json()),
+            fetch('https://api.github.com/users/fyyqq/repos?sort=pushed&per_page=3').then(res => res.json())
+        ]).then(([user, repos]) => {
+            const card = $('#card_github');
+            const stat = (value, label) => $('<span>').append($('<b>').text(value), document.createTextNode(label));
+
+            card.find('.cc_name').text(user.name || user.login);
+            card.find('.cc_stats').empty().append(
+                stat(user.public_repos, 'Repositories'),
+                stat(user.followers, 'Followers'),
+                stat(user.following, 'Following')
+            );
+            card.find('.cc_list').empty().append(repos.map(repo => $('<li>').append(
+                $('<span>').text(repo.name),
+                $('<span class="cc_muted">').text(repo.language || '')
+            )));
+        }).catch(() => {
+            githubLoaded = false;
+            $('#card_github .cc_list').html('<li class="cc_muted">Could not load repositories.</li>');
+        });
+    }
+
+    function showContactCard(key) {
+        clearTimeout(cardTimer);
+        $('.contact_card').removeClass('show').attr('aria-hidden', 'true');
+        $(`#card_${key}`).addClass('show').attr('aria-hidden', 'false');
+
+        if (key === 'github') {
+            loadGithubCard();
+        }
+    }
+
+    function hideContactCards() {
+        cardTimer = setTimeout(() => $('.contact_card').removeClass('show').attr('aria-hidden', 'true'), 150);
+    }
+
+    $('[data-card]').on('mouseenter focus', function() {
+        showContactCard($(this).data('card'));
+    }).on('mouseleave blur', hideContactCards);
+
+    $('.contact_card').on('mouseenter', () => clearTimeout(cardTimer)).on('mouseleave', hideContactCards);
+
     $('#menu').click(function(e) {
         e.preventDefault();
 

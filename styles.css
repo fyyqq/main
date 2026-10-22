@@ -618,7 +618,7 @@ section#contact .contact_info {
     overflow: visible;
 }
 
-/* the empty space beside the links; the cards are centered in it */
+/* the empty space beside the links; the cards sit at its top, centered horizontally */
 section#contact .contact_cards {
     position: absolute;
     top: 0;
@@ -626,7 +626,7 @@ section#contact .contact_cards {
     left: 150px;
     right: 0;
     display: grid;
-    place-items: center;
+    place-items: start center;
     padding: 0 24px;
     overflow: visible;
     pointer-events: none;

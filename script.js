@@ -240,6 +240,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     emailjs.init("51lK1nLrWIcoV6rf_");
 })();
 
+// set to true to keep the success popup open on page load while editing its design
+const PREVIEW_SUCCESS_POPUP = false;
+
+function showSuccessPopup() {
+    return Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Sent to Developer  ❤',
+        showConfirmButton: false,
+        ...(PREVIEW_SUCCESS_POPUP ? {allowOutsideClick: false, allowEscapeKey: false} : {timer: 1500})
+    });
+}
+
+if (PREVIEW_SUCCESS_POPUP) {
+    showSuccessPopup();
+}
+
 function sendMessage(event) {
 
     const name = $('.inputName');
@@ -249,6 +266,7 @@ function sendMessage(event) {
     
     var mailValue = $(email).val();
     const errElement = $(email).siblings('#error');
+    const submitError = $('#submit_error');
 
     if (mailValue === '') {
         $(email).addClass('border-danger');
@@ -271,6 +289,7 @@ function sendMessage(event) {
         message: $(message).val(),
     };
 
+    $(submitError).addClass('d-none');
     $('.custom-loader').show();
     $(event).css('color', 'transparent');
     
@@ -285,13 +304,7 @@ function sendMessage(event) {
         $(message).val($(message).prop('defaultValue'));
         
         if (res.status == 200) {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Sent to Developer  ❤',
-                showConfirmButton: false,
-                timer: 1500
-            });
+            showSuccessPopup();
             $(email).removeClass('border-danger');
             $(errElement).addClass('d-none');
             $('.custom-loader').hide();
@@ -299,6 +312,11 @@ function sendMessage(event) {
         }
     }).catch(err => {
         console.error(err);
+
+        $('.custom-loader').hide();
+        $(event).css('color', '#fff');
+        $(submitError).text(`Failed to send: ${err && (err.text || err.message) || 'something went wrong, please try again.'}`);
+        $(submitError).removeClass('d-none');
     });
 }
 

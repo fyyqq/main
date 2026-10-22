@@ -614,15 +614,28 @@ section#contact .col-12 .form-floating textarea {
 
 /* Contact hover cards (GitHub / LinkedIn) */
 section#contact .contact_info {
+    position: static;
     overflow: visible;
 }
 
-section#contact .contact_card {
+/* the empty space beside the links; the cards are centered in it */
+section#contact .contact_cards {
     position: absolute;
-    top: 8px;
-    left: 190px;
+    top: 0;
+    bottom: 0;
+    left: 150px;
+    right: 0;
+    display: grid;
+    place-items: center;
+    padding: 0 24px;
+    overflow: visible;
+    pointer-events: none;
+}
+
+section#contact .contact_card {
+    grid-area: 1 / 1;
     z-index: 5;
-    width: 340px;
+    width: min(340px, 100%);
     padding: 18px 20px;
     border: 1px solid #e6e6e6;
     border-radius: 16px;
@@ -637,6 +650,7 @@ section#contact .contact_card {
 section#contact .contact_card.show {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     transform: translateX(0);
 }
 
@@ -742,8 +756,8 @@ section#contact .cc_link:hover {
     text-decoration: underline;
 }
 
-/* the cards need the empty space beside the links, so only show them on wide screens with hover */
-@media (max-width: 1199.98px), (hover: none) {
+/* the cards need the empty space beside the links, so only show them above 1024px on devices with hover */
+@media (max-width: 1024px), (hover: none) {
     section#contact .contact_card {
         display: none;
     }

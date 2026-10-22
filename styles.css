@@ -495,6 +495,9 @@ section#contact .col-12 ul a:hover {
         flex: 0 0 auto;
         transform: translateX(0px);
     }
+    section#project article div #img_project {
+        height: max-content;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -587,9 +590,6 @@ section#contact .col-12 ul a:hover {
         font-size: 14px;
     }
     /* Project */
-    section#project article div #img_project {
-        height: 220px;
-    }
     section#project #project_container {
         row-gap: 50px;
     }

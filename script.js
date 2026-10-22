@@ -4,6 +4,10 @@ $(document).ready(function() {
     $('#main_header').css('transform', 'translateX(0px)');
     $('#main_header ul').css('transform', 'translateX(0px)');
     $('#main_header #project_link').css('transform', 'translateX(0px)');
+
+    $('[data-bs-toggle="tooltip"]').each(function() {
+        new bootstrap.Tooltip(this);
+    });
     
     $(document).on('click', '.nav-link', function(e) {
         e.preventDefault();

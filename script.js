@@ -16,7 +16,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
         
-    const verticalSize = [0, 500, 1100, 1600, 3000];
+    const sectionIds = ['home', 'about', 'skill', 'project', 'contact'];
     const navLinks = $('.nav-link');
     const navbar = $('.navbar');
 
@@ -24,11 +24,16 @@ $(document).ready(function() {
         const vertical = $(this).scrollTop();
         let selectedLink = 0;
 
-        verticalSize.forEach((value, index) => {
-            if (vertical > value) {
+        // highlight the last section whose top has passed the middle of the screen
+        sectionIds.forEach((id, index) => {
+            if (document.getElementById(id).getBoundingClientRect().top <= window.innerHeight / 2) {
                 selectedLink = index;
             }
         });
+
+        if (vertical + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+            selectedLink = sectionIds.length - 1;
+        }
 
         $(navLinks).removeClass('active');
         $(navLinks).eq(selectedLink).addClass('active');

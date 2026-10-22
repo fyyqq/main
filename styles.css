@@ -340,14 +340,31 @@ section#project article div img {
 section#project article div #img_project {
     height: 320px;
     overflow: hidden;
+    position: relative;
 }
 section#project article div #img_project img {
     cursor: pointer;
+    transition: transform .5s ease-in-out;
 }
 
-section#project article div #img_project img:hover {
+section#project article div #img_project:hover img {
     transform: scale(1.05);
-    transition: transform .5s ease-in-out;
+}
+
+section#project article div #img_project .project_overlay {
+    background-color: rgba(0, 0, 0, .3);
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+section#project article div #img_project:hover .project_overlay {
+    opacity: 1;
+}
+
+section#project article div #img_project .project_overlay_icon {
+    width: 44px;
+    height: 44px;
+    background: url('images/external-link-icon.svg') center / contain no-repeat;
 }
 
 section#project article .left_project {

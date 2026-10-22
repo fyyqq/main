@@ -239,6 +239,7 @@ function sendMessage(event) {
 
     const name = $('.inputName');
     const email = $('.inputEmail');
+    const subject = $('.inputSubject');
     const message = $('.inputMessage');
     
     var mailValue = $(email).val();
@@ -261,6 +262,7 @@ function sendMessage(event) {
     const params = {
         name: $(name).val(),
         email: mailValue,
+        subject: $(subject).val(),
         message: $(message).val(),
     };
 
@@ -274,7 +276,8 @@ function sendMessage(event) {
     .then(res => {
         $(name).val('');
         $(email).val('');
-        $(message).val('');
+        $(subject).val($(subject).prop('defaultValue'));
+        $(message).val($(message).prop('defaultValue'));
         
         if (res.status == 200) {
             Swal.fire({

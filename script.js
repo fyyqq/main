@@ -206,15 +206,26 @@ $(document).ready(function() {
                 $('<span>').text(repo.name),
                 $('<span class="cc_muted">').text(repo.language || '')
             )));
+            positionContactCard('github');
         }).catch(() => {
             githubLoaded = false;
             $('#card_github .cc_list').html('<li class="cc_muted">Could not load repositories.</li>');
         });
     }
 
+    // vertically center a card on the link that opens it
+    function positionContactCard(key) {
+        const link = $(`[data-card="${key}"]`)[0].getBoundingClientRect();
+        const box = $('.contact_cards')[0].getBoundingClientRect();
+        const card = $(`#card_${key}`);
+
+        card.css('margin-top', `${link.top + link.height / 2 - box.top - card.outerHeight() / 2}px`);
+    }
+
     function showContactCard(key) {
         clearTimeout(cardTimer);
         $('.contact_card').removeClass('show').attr('aria-hidden', 'true');
+        positionContactCard(key);
         $(`#card_${key}`).addClass('show').attr('aria-hidden', 'false');
 
         if (key === 'github') {

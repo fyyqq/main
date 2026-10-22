@@ -618,6 +618,12 @@ section#contact .contact_info {
     overflow: visible;
 }
 
+/* let a card centered on a link extend past the top of the column */
+section#contact > div,
+section#contact > div > div:first-child {
+    overflow: visible;
+}
+
 /* the empty space beside the links; the cards sit at its top, centered horizontally */
 section#contact .contact_cards {
     position: absolute;

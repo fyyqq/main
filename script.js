@@ -2,7 +2,20 @@
 $(document).ready(function() {
 
     // svg outline for the contact fields, animated on focus (see .field_border in styles.css)
-    $('#contact .form-floating').append('<svg class="field_border" aria-hidden="true"><rect pathLength="1"></rect></svg>');
+    // the path starts at the top center and runs clockwise a full turn
+    $('#contact .form-floating').each(function() {
+        const field = this;
+        const svg = $('<svg class="field_border" aria-hidden="true"><path pathLength="1"></path></svg>').appendTo(field);
+
+        new ResizeObserver(() => {
+            const w = field.clientWidth, h = field.clientHeight;
+            const inset = 1.25, r = 4.75;
+            const x2 = w - inset, y2 = h - inset, cx = w / 2;
+
+            svg.attr('viewBox', `0 0 ${w} ${h}`);
+            svg.find('path').attr('d', `M${cx} ${inset} H${x2 - r} A${r} ${r} 0 0 1 ${x2} ${inset + r} V${y2 - r} A${r} ${r} 0 0 1 ${x2 - r} ${y2} H${inset + r} A${r} ${r} 0 0 1 ${inset} ${y2 - r} V${inset + r} A${r} ${r} 0 0 1 ${inset + r} ${inset} H${cx}`);
+        }).observe(field);
+    });
 
     $('#main_header').css('transform', 'translateX(0px)');
     $('#main_header ul').css('transform', 'translateX(0px)');

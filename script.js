@@ -274,8 +274,8 @@ function sendMessage(event) {
     $('.custom-loader').show();
     $(event).css('color', 'transparent');
     
-    const serviceID = "service_5q3703o";
-    const templateID = "template_k52q591";
+    const serviceID = "service_35ngicd";
+    const templateID = "template_y7kpoc4";
     
     emailjs.send(serviceID, templateID, params)
     .then(res => {

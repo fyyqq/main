@@ -243,6 +243,39 @@ $(document).ready(function() {
 
     $('.contact_card').on('mouseenter', () => clearTimeout(cardTimer)).on('mouseleave', hideContactCards);
 
+    // the about section sticks to the screen while its words turn bold one by one as you scroll
+    const aboutSection = document.getElementById('about');
+    const aboutText = aboutSection.querySelector('#about_text small');
+    const aboutWords = aboutText.textContent.trim().split(/\s+/).map(word => {
+        const span = document.createElement('span');
+        span.className = 'about_word';
+        span.dataset.word = word;
+        span.textContent = word;
+        return span;
+    });
+
+    aboutText.setAttribute('aria-label', aboutText.textContent.trim());
+    aboutText.textContent = '';
+    aboutWords.forEach((span, i) => {
+        aboutText.appendChild(span);
+        if (i < aboutWords.length - 1) {
+            aboutText.appendChild(document.createTextNode(' '));
+        }
+    });
+
+    function updateAboutWords() {
+        const scrolled = -aboutSection.getBoundingClientRect().top;
+        const distance = aboutSection.offsetHeight - window.innerHeight;
+        // every word is bold a little before the end of the sticky area
+        const progress = Math.min(1, Math.max(0, scrolled / distance) / 0.9);
+        const bold = Math.round(progress * aboutWords.length);
+
+        aboutWords.forEach((span, i) => span.classList.toggle('on', i < bold));
+    }
+
+    ['scroll', 'resize', 'load'].forEach(type => window.addEventListener(type, updateAboutWords, {passive: true}));
+    updateAboutWords();
+
     $('#menu').click(function(e) {
         e.preventDefault();
 

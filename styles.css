@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
 * {
     margin: 0;
@@ -258,13 +258,43 @@ section#home #be::before {
 
 /* About */
 
+/* the section is taller than the screen: its content sticks while the words turn bold, then scrolls on */
 section#about {
-    height: max-content;
+    height: 250vh;
+}
+
+section#about .about_pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 150px 0;
+}
+
+/* overflow: clip keeps the page from scrolling sideways without breaking position: sticky */
+.container-lg {
+    overflow: clip;
+}
+
+/* each word reserves its bold width so the paragraph does not reflow while words turn bold */
+section#about .about_word {
+    display: inline-block;
+    text-align: center;
+}
+
+section#about .about_word::after {
+    content: attr(data-word);
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    font-weight: 600;
+}
+
+section#about .about_word.on {
+    font-weight: 600;
 }
 
 section#about #about_text small {
@@ -889,10 +919,6 @@ section#contact .col-12 ul a:hover {
         font-size: 45px;
     }
     /* About */
-    section#about {
-        margin-top: 135px;
-        margin-bottom: 110px;
-    }
     section#home #main_header,
     section#home #main_header ul,
     section#home #main_header #project_link {

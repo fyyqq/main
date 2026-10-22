@@ -215,7 +215,7 @@ $(document).ready(function() {
 // fill the experience timeline line and dots with a dark color as the section is scrolled
 function updateWorkTimeline() {
     const timeline = document.querySelector('.work_timeline');
-    const mark = window.innerHeight * 0.6;
+    const mark = window.innerHeight / 2;
     const rect = timeline.getBoundingClientRect();
     const progress = Math.min(1, Math.max(0, (mark - rect.top) / rect.height));
 

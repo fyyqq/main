@@ -96,9 +96,9 @@ $(document).ready(function() {
     function playSkillCards() {
         skillsPlayed = true;
         skillCards.forEach((card, i) => {
-            $(card).css({'transition-delay': `${i * 0.5}s`, 'transform': 'translate(0px, 0px)'});
+            $(card).css({'transition-delay': `${i * 0.15}s`, 'transform': 'translate(0px, 0px)'});
         });
-        setTimeout(() => $(skillCards).css('transition-delay', ''), skillCards.length * 500 + 1000);
+        setTimeout(() => $(skillCards).css('transition-delay', ''), skillCards.length * 150 + 1000);
     }
 
     $(window).on('load', stackSkillCards);

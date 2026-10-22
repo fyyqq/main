@@ -23,7 +23,6 @@ $(document).ready(function() {
     $(window).scroll(function() {
         const vertical = $(this).scrollTop();
         let selectedLink = 0;
-        console.log(vertical);
 
         verticalSize.forEach((value, index) => {
             if (vertical > value) {

@@ -352,7 +352,8 @@ section#work .work_item {
 
 section#work .work_dot {
     position: absolute;
-    top: 14px;
+    top: 50%;
+    transform: translateY(-50%);
     left: -52px;
     width: 18px;
     height: 18px;
@@ -716,7 +717,6 @@ section#contact .col-12 ul a:hover {
         left: -30px;
         width: 10px;
         height: 10px;
-        top: 20px;
     }
     section#work .work_card {
         padding: 20px 18px 22px;

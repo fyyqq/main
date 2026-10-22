@@ -344,11 +344,6 @@ section#project article div #img_project {
 }
 section#project article div #img_project img {
     cursor: pointer;
-    transition: transform .5s ease-in-out;
-}
-
-section#project article div #img_project:hover img {
-    transform: scale(1.05);
 }
 
 section#project article div #img_project .project_overlay {
@@ -362,9 +357,10 @@ section#project article div #img_project:hover .project_overlay {
 }
 
 section#project article div #img_project .project_overlay_icon {
-    width: 44px;
-    height: 44px;
-    background: url('images/external-link-icon.svg') center / contain no-repeat;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: url('images/external-link-icon.svg') center / 40px no-repeat, rgba(0, 0, 0, .75);
 }
 
 section#project article .left_project {

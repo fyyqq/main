@@ -263,14 +263,23 @@ $(document).ready(function() {
         }
     });
 
+    let boldCount = 0;
+
     function updateAboutWords() {
         const scrolled = -aboutSection.getBoundingClientRect().top;
         const distance = aboutSection.offsetHeight - window.innerHeight;
-        // every word is bold a little before the end of the sticky area
-        const progress = Math.min(1, Math.max(0, scrolled / distance) / 0.9);
-        const bold = Math.round(progress * aboutWords.length);
 
-        aboutWords.forEach((span, i) => span.classList.toggle('on', i < bold));
+        if (scrolled <= 0) {
+            // back above the section: reset so the effect plays again on the next scroll down
+            boldCount = 0;
+        } else {
+            // every word is bold a little before the end of the sticky area
+            const progress = Math.min(1, scrolled / distance / 0.9);
+            // words only turn bold while scrolling down, never back while scrolling up
+            boldCount = Math.max(boldCount, Math.round(progress * aboutWords.length));
+        }
+
+        aboutWords.forEach((span, i) => span.classList.toggle('on', i < boldCount));
     }
 
     ['scroll', 'resize', 'load'].forEach(type => window.addEventListener(type, updateAboutWords, {passive: true}));

@@ -16,7 +16,7 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
         
-    const sectionIds = ['home', 'about', 'skill', 'project', 'contact'];
+    const sectionIds = ['home', 'about', 'skill', 'work', 'project', 'contact'];
     const navLinks = $('.nav-link');
     const navbar = $('.navbar');
 

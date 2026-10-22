@@ -1,6 +1,9 @@
 
 $(document).ready(function() {
 
+    // svg outline for the contact fields, animated on focus (see .field_border in styles.css)
+    $('#contact .form-floating').append('<svg class="field_border" aria-hidden="true"><rect pathLength="1"></rect></svg>');
+
     $('#main_header').css('transform', 'translateX(0px)');
     $('#main_header ul').css('transform', 'translateX(0px)');
     $('#main_header #project_link').css('transform', 'translateX(0px)');

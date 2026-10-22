@@ -612,9 +612,35 @@ section#contact .col-12 .form-floating textarea {
     border: 1px solid gainsboro;
 }
 
-section#contact .col-12 .form-floating input:focus,
-section#contact .col-12 .form-floating textarea:focus {
-    border: 1.5px solid #222;
+/* animated focus border: drawn clockwise from the top-left corner */
+section#contact .col-12 .form-floating .field_border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    overflow: visible;
+    pointer-events: none;
+}
+
+section#contact .col-12 .form-floating .field_border rect {
+    x: .75px;
+    y: .75px;
+    width: calc(100% - 1.5px);
+    height: calc(100% - 1.5px);
+    rx: 6px;
+    fill: none;
+    stroke: #222;
+    stroke-width: 1.5px;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset .3s ease;
+}
+
+section#contact .col-12 .form-floating:focus-within .field_border rect {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset .7s ease;
 }
 
 section#contact .col-12 div button {

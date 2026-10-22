@@ -82,7 +82,8 @@ $(document).ready(function() {
             const rect = card.getBoundingClientRect();
             return {
                 x: (box.left + box.width / 2) - (rect.left + rect.width / 2),
-                y: box.bottom - rect.bottom
+                // one card height below the container so cards in the last row also travel up
+                y: (box.bottom + rect.height) - rect.bottom
             };
         });
 

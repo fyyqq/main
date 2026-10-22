@@ -74,11 +74,11 @@ $(document).ready(function() {
     const skillCards = $('#skills_container .skill_icon').toArray();
     let skillsPlayed = false;
 
-    function stackSkillCards() {
-        skillCards.forEach(card => $(card).css({'transition': 'none', 'transform': 'none'}));
+    function stackSkillCards(cards = skillCards) {
+        cards.forEach(card => $(card).css({'transition': 'none', 'transform': 'none'}));
 
         const box = document.getElementById('skills_container').getBoundingClientRect();
-        const offsets = skillCards.map(card => {
+        const offsets = cards.map(card => {
             const rect = card.getBoundingClientRect();
             return {
                 x: (box.left + box.width / 2) - (rect.left + rect.width / 2),
@@ -87,19 +87,22 @@ $(document).ready(function() {
             };
         });
 
-        skillCards.forEach((card, i) => {
+        cards.forEach((card, i) => {
             $(card).css('transform', `translate(${offsets[i].x}px, ${offsets[i].y}px)`);
         });
         void document.body.offsetHeight;
-        skillCards.forEach(card => $(card).css('transition', ''));
+        cards.forEach(card => $(card).css('transition', ''));
     }
 
-    function playSkillCards() {
+    let skillsTimer;
+
+    function playSkillCards(cards = skillCards) {
         skillsPlayed = true;
-        skillCards.forEach((card, i) => {
+        cards.forEach((card, i) => {
             $(card).css({'transition-delay': `${i * 0.15}s`, 'transform': 'translate(0px, 0px)'});
         });
-        setTimeout(() => $(skillCards).css('transition-delay', ''), skillCards.length * 150 + 1000);
+        clearTimeout(skillsTimer);
+        skillsTimer = setTimeout(() => $(cards).css('transition-delay', ''), cards.length * 150 + 1000);
     }
 
     $(window).on('load', stackSkillCards);
@@ -168,6 +171,11 @@ $(document).ready(function() {
             $(skills).hide();
             $(`[data-skill-type="${btn_type}"]`).show();
         }
+
+        // replay the stack-to-place animation for the cards of the selected tab
+        const visibleCards = skillCards.filter(card => $(card).is(':visible'));
+        stackSkillCards(visibleCards);
+        playSkillCards(visibleCards);
     });
 });
 

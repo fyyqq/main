@@ -484,10 +484,16 @@ section#contact .col-12 ul a:hover {
     color: #000;
 }
 
-@media screen and (max-width: 992px) {
-    section#project article div #img_project {
-        height: 280px;
-        border: 2px solid red;
+@media screen and (max-width: 1024px) {
+    /* Project: stack the text and preview in one column, preview on top */
+    section#project article.flex-md-row {
+        flex-direction: column-reverse !important;
+    }
+    section#project article .left_project,
+    section#project article .right_project {
+        width: 100%;
+        flex: 0 0 auto;
+        transform: translateX(0px);
     }
 }
 

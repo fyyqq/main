@@ -299,8 +299,27 @@ $(document).ready(function() {
     });
 
     let keysOn = 0;
+    let aboutDone = false;
+
+    // once every phrase is lit and the section is out of view, drop the sticky scroll area for good
+    function releaseAbout(rect) {
+        const next = aboutSection.nextElementSibling;
+        const before = next.getBoundingClientRect().top;
+
+        aboutSection.classList.add('about_done');
+        aboutDone = true;
+
+        if (rect.bottom <= 0) {
+            // the section was above the screen, so keep what is on screen where it was
+            window.scrollBy(0, next.getBoundingClientRect().top - before);
+        }
+    }
 
     function updateAboutWords() {
+        if (aboutDone) {
+            return;
+        }
+
         const scrolled = -aboutSection.getBoundingClientRect().top;
         const distance = aboutSection.offsetHeight - window.innerHeight;
 
@@ -310,6 +329,11 @@ $(document).ready(function() {
         keysOn = Math.max(keysOn, Math.round(progress * aboutKeyWords.length));
 
         aboutKeyWords.forEach((span, i) => span.classList.toggle('on', i < keysOn));
+
+        const rect = aboutSection.getBoundingClientRect();
+        if (keysOn >= aboutKeyWords.length && (rect.bottom <= 0 || rect.top >= window.innerHeight)) {
+            releaseAbout(rect);
+        }
     }
 
     ['scroll', 'resize', 'load'].forEach(type => window.addEventListener(type, updateAboutWords, {passive: true}));

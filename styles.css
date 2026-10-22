@@ -264,6 +264,17 @@ section#about {
     height: 250vh;
 }
 
+/* after the first view the sticky scroll area is removed and the section is a normal block */
+section#about.about_done {
+    height: auto;
+}
+
+section#about.about_done .about_pin {
+    position: static;
+    height: auto;
+    padding: 150px 0;
+}
+
 section#about .about_pin {
     position: sticky;
     top: 0;

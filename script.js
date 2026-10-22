@@ -339,6 +339,18 @@ $(document).ready(function() {
         }
     }
 
+    // used by the navbar links: jumping past About skips the effect, so the sticky area must be gone before the scroll target is measured
+    window.releaseAboutNow = function() {
+        if (aboutDone) {
+            return;
+        }
+
+        keysOn = aboutKeyWords.length;
+        aboutKeyWords.forEach(span => span.classList.add('on'));
+        aboutSection.classList.add('about_done');
+        aboutDone = true;
+    };
+
     ['scroll', 'resize', 'load'].forEach(type => window.addEventListener(type, updateAboutWords, {passive: true}));
     updateAboutWords();
 
@@ -413,6 +425,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
 
         const target = document.querySelector(this.getAttribute('href'));
+
+        if (target.id !== 'home' && target.id !== 'about' && window.releaseAboutNow) {
+            window.releaseAboutNow();
+        }
+
         const navHeight = document.querySelector('.navbar').offsetHeight;
         const targetTop = target.getBoundingClientRect().top + window.scrollY;
         const targetHeight = target.offsetHeight;

@@ -763,7 +763,7 @@ section#contact .cc_link:hover {
     }
 }
 
-/* animated focus border: drawn clockwise from the top center */
+/* animated focus border: drawn clockwise from the top center, and drawn back the same way on blur */
 section#contact .col-12 .form-floating .field_border {
     position: absolute;
     top: 0;
@@ -779,14 +779,12 @@ section#contact .col-12 .form-floating .field_border path {
     fill: none;
     stroke: #222;
     stroke-width: 2.5px;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    transition: stroke-dashoffset .3s ease;
+    stroke-dasharray: 0 1;
+    transition: stroke-dasharray .7s ease;
 }
 
 section#contact .col-12 .form-floating:focus-within .field_border path {
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset .7s ease;
+    stroke-dasharray: 1 1;
 }
 
 section#contact .col-12 div button {

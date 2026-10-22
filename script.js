@@ -32,13 +32,14 @@ $(document).ready(function() {
         $(this).addClass('active');
     });
         
-    const sectionIds = ['home', 'about', 'skill', 'work', 'project', 'contact'];
+    const sectionIds = ['about', 'skill', 'work', 'project', 'contact'];
     const navLinks = $('.nav-link');
     const navbar = $('.navbar');
 
     $(window).scroll(function() {
         const vertical = $(this).scrollTop();
-        let selectedLink = 0;
+        // -1 while above the first section: no link is highlighted
+        let selectedLink = -1;
 
         // highlight the last section whose top has passed the middle of the screen
         sectionIds.forEach((id, index) => {
@@ -52,7 +53,9 @@ $(document).ready(function() {
         }
 
         $(navLinks).removeClass('active');
-        $(navLinks).eq(selectedLink).addClass('active');
+        if (selectedLink >= 0) {
+            $(navLinks).eq(selectedLink).addClass('active');
+        }
         
         if (vertical > 50) {
             $(navbar).addClass('shadow-sm');

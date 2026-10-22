@@ -358,6 +358,9 @@ section#skill .skill_icon:nth-child(12) {
 section#skill .skill_icon:nth-child(13) {
     transform: translate(420px, 60px);
 }
+section#skill .skill_icon:nth-child(14) {
+    transform: translate(140px, 60px);
+}
 
 section#skill #skills_container {
     row-gap: 20px;
@@ -545,7 +548,8 @@ section#contact .col-12 ul a:hover {
     section#skill .skill_icon:nth-child(10),
     section#skill .skill_icon:nth-child(11),
     section#skill .skill_icon:nth-child(12),
-    section#skill .skill_icon:nth-child(13) {
+    section#skill .skill_icon:nth-child(13),
+    section#skill .skill_icon:nth-child(14) {
         transform: translate(0px, 0px);
     }
     section#skill #skills_container {

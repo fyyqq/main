@@ -311,38 +311,22 @@ section#about .about_key_role.on {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 700;
-    font-size: 21px;
 }
 
 section#about .about_key_metric::after,
 section#about .about_key_metric.on {
     font-family: 'Bangers', cursive;
     font-weight: 400;
-    font-size: 24px;
     letter-spacing: .5px;
 }
 
 section#about .about_key_tech::after,
 section#about .about_key_tech.on {
     font-weight: 600;
-    font-size: 18px;
 }
 
 section#about .about_key.on {
     color: var(--key-color);
-    animation: about_pop .45s ease;
-}
-
-@keyframes about_pop {
-    0% {
-        transform: scale(.6);
-    }
-    60% {
-        transform: scale(1.15);
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 
 section#about #about_text small {

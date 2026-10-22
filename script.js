@@ -52,9 +52,6 @@ $(document).ready(function() {
                 'opacity': '1'
             });
         }
-        if (vertical > 1000) {
-            $('section#skill .skill_icon').css('transform', 'translate(0px, 0px)');
-        }
         if (vertical > 1600) {
             $('.left_project').eq(0).css('transform', 'translateX(0px)');
             $('.right_project').eq(0).css('transform', 'translateX(0px)');
@@ -73,6 +70,51 @@ $(document).ready(function() {
         }
     });
     
+    // skill cards start stacked at the bottom-middle of the container, then fly to their place one by one
+    const skillCards = $('#skills_container .skill_icon').toArray();
+    let skillsPlayed = false;
+
+    function stackSkillCards() {
+        skillCards.forEach(card => $(card).css({'transition': 'none', 'transform': 'none'}));
+
+        const box = document.getElementById('skills_container').getBoundingClientRect();
+        const offsets = skillCards.map(card => {
+            const rect = card.getBoundingClientRect();
+            return {
+                x: (box.left + box.width / 2) - (rect.left + rect.width / 2),
+                y: box.bottom - rect.bottom
+            };
+        });
+
+        skillCards.forEach((card, i) => {
+            $(card).css('transform', `translate(${offsets[i].x}px, ${offsets[i].y}px)`);
+        });
+        void document.body.offsetHeight;
+        skillCards.forEach(card => $(card).css('transition', ''));
+    }
+
+    function playSkillCards() {
+        skillsPlayed = true;
+        skillCards.forEach((card, i) => {
+            $(card).css({'transition-delay': `${i * 0.5}s`, 'transform': 'translate(0px, 0px)'});
+        });
+        setTimeout(() => $(skillCards).css('transition-delay', ''), skillCards.length * 500 + 1000);
+    }
+
+    $(window).on('load', stackSkillCards);
+    $(window).on('resize', function() {
+        if (!skillsPlayed) {
+            stackSkillCards();
+        }
+    });
+
+    new IntersectionObserver((entries, observer) => {
+        if (entries.some(entry => entry.isIntersecting)) {
+            playSkillCards();
+            observer.disconnect();
+        }
+    }, { threshold: 0.2 }).observe(document.getElementById('skills_container'));
+
     $(document).on('click', '.nav-link', function(e) {
         e.preventDefault();
 

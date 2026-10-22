@@ -316,51 +316,9 @@ section#skill .skill_menu {
 }
 
 section#skill .skill_icon {
-    transition: transform 1.5s ease;
+    transition: transform .8s ease;
 }
 
-section#skill .skill_icon:nth-child(1) {
-    transform: translate(418px, 270px);
-}
-section#skill .skill_icon:nth-child(2) {
-    transform: translate(140px, 270px);
-}
-section#skill .skill_icon:nth-child(3) {
-    transform: translate(-140px, 270px);
-}
-section#skill .skill_icon:nth-child(4) {
-    transform: translate(-418px, 270px);
-}
-section#skill .skill_icon:nth-child(5) {
-    transform: translate(420px, 200px);
-}
-section#skill .skill_icon:nth-child(6) {
-    transform: translate(140px, 200px);
-}
-section#skill .skill_icon:nth-child(7) {
-    transform: translate(-140px, 200px);
-}
-section#skill .skill_icon:nth-child(8) {
-    transform: translate(-418px, 201px);
-}
-section#skill .skill_icon:nth-child(9) {
-    transform: translate(418px, 130px);
-}
-section#skill .skill_icon:nth-child(10) {
-    transform: translate(140px, 130px);
-}
-section#skill .skill_icon:nth-child(11) {
-    transform: translate(-140px, 130px);
-}
-section#skill .skill_icon:nth-child(12) {
-    transform: translate(-420px, 130px);
-}
-section#skill .skill_icon:nth-child(13) {
-    transform: translate(420px, 60px);
-}
-section#skill .skill_icon:nth-child(14) {
-    transform: translate(140px, 60px);
-}
 
 section#skill #skills_container {
     row-gap: 20px;
@@ -535,22 +493,6 @@ section#contact .col-12 ul a:hover {
     /* Skill */
     section#skill {
         margin-bottom: 160px;
-    }
-    section#skill .skill_icon:nth-child(1),
-    section#skill .skill_icon:nth-child(2),
-    section#skill .skill_icon:nth-child(3),
-    section#skill .skill_icon:nth-child(4),
-    section#skill .skill_icon:nth-child(5),
-    section#skill .skill_icon:nth-child(6),
-    section#skill .skill_icon:nth-child(7),
-    section#skill .skill_icon:nth-child(8),
-    section#skill .skill_icon:nth-child(9),
-    section#skill .skill_icon:nth-child(10),
-    section#skill .skill_icon:nth-child(11),
-    section#skill .skill_icon:nth-child(12),
-    section#skill .skill_icon:nth-child(13),
-    section#skill .skill_icon:nth-child(14) {
-        transform: translate(0px, 0px);
     }
     section#skill #skills_container {
         row-gap: 20px;

@@ -105,7 +105,7 @@ $(document).ready(function() {
         skillsTimer = setTimeout(() => $(cards).css('transition-delay', ''), cards.length * 150 + 1000);
     }
 
-    $(window).on('load', stackSkillCards);
+    $(window).on('load', () => stackSkillCards());
     $(window).on('resize', function() {
         if (!skillsPlayed) {
             stackSkillCards();

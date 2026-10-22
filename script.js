@@ -243,43 +243,72 @@ $(document).ready(function() {
 
     $('.contact_card').on('mouseenter', () => clearTimeout(cardTimer)).on('mouseleave', hideContactCards);
 
-    // the about section sticks to the screen while its words turn bold one by one as you scroll
+    // the about section sticks to the screen while its key phrases light up one by one as you scroll;
+    // it only plays the first time, so the phrases stay highlighted afterwards
     const aboutSection = document.getElementById('about');
     const aboutText = aboutSection.querySelector('#about_text small');
-    const aboutWords = aboutText.textContent.trim().split(/\s+/).map(word => {
-        const span = document.createElement('span');
-        span.className = 'about_word';
-        span.dataset.word = word;
-        span.textContent = word;
-        return span;
-    });
+    const aboutTokens = aboutText.textContent.trim().split(/\s+/);
+    const cleanToken = token => token.replace(/^["“(]+|[.,;:!?"”)]+$/g, '');
 
-    aboutText.setAttribute('aria-label', aboutText.textContent.trim());
-    aboutText.textContent = '';
-    aboutWords.forEach((span, i) => {
-        aboutText.appendChild(span);
-        if (i < aboutWords.length - 1) {
-            aboutText.appendChild(document.createTextNode(' '));
+    // [phrase, style, color]
+    const aboutKeys = [
+        ['web developer', 'role', '#6c47ff'],
+        ['3 years', 'metric', '#fc5a29'],
+        ['PHP', 'tech', '#5b5fa8'],
+        ['Laravel', 'tech', '#fb503b'],
+        ['WordPress', 'tech', '#21759b'],
+        ['10+ client websites', 'metric', '#d6336c'],
+        ['multilingual', 'tech', '#0b75bc'],
+        ['Google PageSpeed', 'tech', '#1a73e8'],
+        ['98', 'metric', '#2eaf33'],
+        ['REST API', 'tech', '#099268'],
+        ['Playwright', 'tech', '#2b8a3e']
+    ];
+
+    const keyAt = {};
+    aboutKeys.forEach(([phrase, style, color]) => {
+        const words = phrase.split(' ');
+        const start = aboutTokens.findIndex((_, i) => words.every((word, j) => cleanToken(aboutTokens[i + j] || '') === word));
+
+        if (start !== -1) {
+            words.forEach((_, j) => keyAt[start + j] = {style, color});
         }
     });
 
-    let boldCount = 0;
+    const aboutKeyWords = [];
+
+    aboutText.setAttribute('aria-label', aboutText.textContent.trim());
+    aboutText.textContent = '';
+    aboutTokens.forEach((token, i) => {
+        if (i > 0) {
+            aboutText.appendChild(document.createTextNode(' '));
+        }
+
+        if (keyAt[i]) {
+            const span = document.createElement('span');
+            span.className = `about_key about_key_${keyAt[i].style}`;
+            span.dataset.word = token;
+            span.style.setProperty('--key-color', keyAt[i].color);
+            span.textContent = token;
+            aboutText.appendChild(span);
+            aboutKeyWords.push(span);
+        } else {
+            aboutText.appendChild(document.createTextNode(token));
+        }
+    });
+
+    let keysOn = 0;
 
     function updateAboutWords() {
         const scrolled = -aboutSection.getBoundingClientRect().top;
         const distance = aboutSection.offsetHeight - window.innerHeight;
 
-        if (scrolled <= 0) {
-            // back above the section: reset so the effect plays again on the next scroll down
-            boldCount = 0;
-        } else {
-            // every word is bold a little before the end of the sticky area
-            const progress = Math.min(1, scrolled / distance / 0.9);
-            // words only turn bold while scrolling down, never back while scrolling up
-            boldCount = Math.max(boldCount, Math.round(progress * aboutWords.length));
-        }
+        // everything is lit a little before the end of the sticky area
+        const progress = Math.min(1, Math.max(0, scrolled / distance) / 0.9);
+        // only ever goes up: scrolling back up or above the section changes nothing
+        keysOn = Math.max(keysOn, Math.round(progress * aboutKeyWords.length));
 
-        aboutWords.forEach((span, i) => span.classList.toggle('on', i < boldCount));
+        aboutKeyWords.forEach((span, i) => span.classList.toggle('on', i < keysOn));
     }
 
     ['scroll', 'resize', 'load'].forEach(type => window.addEventListener(type, updateAboutWords, {passive: true}));

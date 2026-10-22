@@ -252,7 +252,7 @@ $(document).ready(function() {
 
     // [phrase, style, color]
     const aboutKeys = [
-        ['web developer', 'role', '#6c47ff'],
+        ['Web Developer', 'role', '#6c47ff'],
         ['3 years', 'metric', '#fc5a29'],
         ['PHP', 'tech', '#5b5fa8'],
         ['Laravel', 'tech', '#fb503b'],
@@ -262,7 +262,8 @@ $(document).ready(function() {
         ['Google PageSpeed', 'tech', '#1a73e8'],
         ['98', 'metric', '#2eaf33'],
         ['REST API', 'tech', '#099268'],
-        ['Playwright', 'tech', '#2b8a3e']
+        ['Playwright', 'tech', '#2b8a3e'],
+        ['Agile', 'tech', '#f08c00']
     ];
 
     const keyAt = {};

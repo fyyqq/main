@@ -247,7 +247,7 @@ function showSuccessPopup() {
     return Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Sent to Developer  ❤',
+        title: 'Thank you! Your message has been sent.',
         showConfirmButton: false,
         ...(PREVIEW_SUCCESS_POPUP ? {allowOutsideClick: false, allowEscapeKey: false} : {timer: 1500})
     });

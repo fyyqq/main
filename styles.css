@@ -346,6 +346,16 @@ section#work .work_timeline::before {
     background-color: #ddd;
 }
 
+section#work .work_timeline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 7.5px;
+    width: 2px;
+    height: calc(var(--work-progress, 0) * 100%);
+    background-color: #222;
+}
+
 section#work .work_item {
     position: relative;
 }
@@ -359,6 +369,11 @@ section#work .work_dot {
     height: 18px;
     border-radius: 50%;
     background-color: #cfcfcf;
+    transition: background-color .3s ease;
+}
+
+section#work .work_dot.active {
+    background-color: #222;
 }
 
 section#work .work_card {
@@ -712,6 +727,9 @@ section#contact .col-12 ul a:hover {
     }
     section#work .work_timeline::before {
         left: 4px;
+    }
+    section#work .work_timeline::after {
+        left: 3.5px;
     }
     section#work .work_dot {
         left: -30px;

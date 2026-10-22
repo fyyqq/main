@@ -212,6 +212,23 @@ $(document).ready(function() {
     });
 });
 
+// fill the experience timeline line and dots with a dark color as the section is scrolled
+function updateWorkTimeline() {
+    const timeline = document.querySelector('.work_timeline');
+    const mark = window.innerHeight * 0.6;
+    const rect = timeline.getBoundingClientRect();
+    const progress = Math.min(1, Math.max(0, (mark - rect.top) / rect.height));
+
+    timeline.style.setProperty('--work-progress', progress);
+    timeline.querySelectorAll('.work_dot').forEach(dot => {
+        const box = dot.getBoundingClientRect();
+        dot.classList.toggle('active', box.top + box.height / 2 <= mark);
+    });
+}
+
+['scroll', 'resize', 'load'].forEach(type => window.addEventListener(type, updateWorkTimeline, {passive: true}));
+updateWorkTimeline();
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();

@@ -130,6 +130,35 @@ $(document).ready(function() {
         $('.nav-item').addClass('open');
     });
 
+    const videoModal = $('#video_modal');
+    const modalVideo = videoModal.find('video').get(0);
+
+    function closeVideoModal() {
+        videoModal.removeClass('show').attr('aria-hidden', 'true');
+        modalVideo.pause();
+    }
+
+    $(document).on('click', '.project_expand', function(e) {
+        e.preventDefault();
+
+        modalVideo.src = $(this).data('video');
+        modalVideo.setAttribute('aria-label', $(this).data('title'));
+        videoModal.addClass('show').attr('aria-hidden', 'false');
+        modalVideo.play();
+    });
+
+    videoModal.on('click', function(e) {
+        if (e.target === this || $(e.target).hasClass('video_modal_close')) {
+            closeVideoModal();
+        }
+    });
+
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape' && videoModal.hasClass('show')) {
+            closeVideoModal();
+        }
+    });
+
     $('#menu').click(function(e) {
         e.preventDefault();
 

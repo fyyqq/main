@@ -930,6 +930,10 @@ section#contact .col-12 ul a:hover {
     .navbar .navbar-brand {
         z-index: 999;
     }
+    /* at exactly 768px Bootstrap still expands the navbar, which pushed the menu icon next to the logo */
+    .navbar-expand-md .navbar-collapse:not(.show) {
+        display: none !important;
+    }
     .navbar #menu {
         z-index: 999;
         display: flex;

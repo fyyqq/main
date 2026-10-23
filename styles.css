@@ -788,16 +788,6 @@ section#contact .cc_avatar {
     object-fit: cover;
 }
 
-section#contact .cc_initials {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #222;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-}
-
 section#contact .cc_name {
     font-size: 15px;
     font-weight: 500;

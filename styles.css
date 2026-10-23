@@ -930,10 +930,6 @@ section#contact .col-12 ul a:hover {
     .navbar .navbar-brand {
         z-index: 999;
     }
-    /* at exactly 768px Bootstrap still expands the navbar, which pushed the menu icon next to the logo */
-    .navbar-expand-md .navbar-collapse:not(.show) {
-        display: none !important;
-    }
     .navbar #menu {
         z-index: 999;
         display: flex;
@@ -1055,5 +1051,16 @@ section#contact .col-12 ul a:hover {
     section#contact {
         margin-top: 100px;
         padding-bottom: 50px;
+    }
+}
+
+/* at exactly 768px the mobile styles and Bootstrap's expanded navbar overlap, which pushed the menu icon next to the logo */
+@media screen and (min-width: 768px) and (max-width: 768px) {
+    .navbar .navbar-collapse {
+        flex-grow: 0;
+        flex-basis: 0;
+    }
+    .navbar #menu {
+        margin-left: auto;
     }
 }

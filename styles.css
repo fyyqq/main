@@ -570,7 +570,8 @@ section#project article div #img_project {
     overflow: hidden;
     position: relative;
 }
-section#project article div #img_project img {
+section#project article div #img_project img,
+section#project article div #img_project video {
     cursor: pointer;
 }
 

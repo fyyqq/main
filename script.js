@@ -75,22 +75,6 @@ $(document).ready(function() {
                 'opacity': '1'
             });
         }
-        if (vertical > 1600) {
-            $('.left_project').eq(0).css('transform', 'translateX(0px)');
-            $('.right_project').eq(0).css('transform', 'translateX(0px)');
-        }
-        if (vertical > 2000) {
-            $('.left_project').eq(1).css('transform', 'translateX(0px)');
-            $('.right_project').eq(1).css('transform', 'translateX(0px)');
-        }
-        if (vertical > 2400) {
-            $('.left_project').eq(2).css('transform', 'translateX(0px)');
-            $('.right_project').eq(2).css('transform', 'translateX(0px)');
-        }
-        if (vertical > 2800) {
-            $('.left_project').eq(3).css('transform', 'translateX(0px)');
-            $('.right_project').eq(3).css('transform', 'translateX(0px)');
-        }
     });
     
     // skill cards start stacked at the bottom-middle of the container, then fly to their place one by one
@@ -353,6 +337,35 @@ $(document).ready(function() {
 
     ['scroll', 'resize', 'load'].forEach(type => window.addEventListener(type, updateAboutWords, {passive: true}));
     updateAboutWords();
+
+    // project rows slide in when they first come into view
+    const projectObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                $(entry.target).find('.left_project, .right_project').css('transform', 'translateX(0px)');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {threshold: 0.15});
+
+    $('#project_container article').each(function() {
+        projectObserver.observe(this);
+    });
+
+    // the muted preview videos only play while they are on screen
+    const previewObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play().catch(() => {});
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, {threshold: 0.25});
+
+    $('.project_preview').each(function() {
+        previewObserver.observe(this);
+    });
 
     $('#menu').click(function(e) {
         e.preventDefault();

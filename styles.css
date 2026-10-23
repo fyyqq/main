@@ -149,6 +149,7 @@ div {
 section .h2 {
     font-family: 'Bangers', cursive;
     position: relative;
+    text-transform: uppercase;
 }
 
 section .h2::after {
